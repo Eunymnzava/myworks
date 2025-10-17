@@ -1,0 +1,542 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+    <title>My checklist</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .landing-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;   
+            align-items: center;      
+            height: 100vh;         
+            width: 100%;
+            text-align: center;
+            color: white;
+            background: linear-gradient(to right, rgba(237, 112, 221, 0.9), rgba(245, 205, 242, 0.6)),
+                        url('assets/bg-intro.jpg') no-repeat center center/cover;
+            box-sizing: border-box;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .welcome, .checklist {
+            display: block;       
+            margin: 0.25em 0;     
+        }
+
+        .welcome {
+            font-family: "Ultra", serif;
+            font-size: 2.5rem;
+        }
+
+        .checklist {
+            font-family: "Ultra", serif;
+            font-size: 4.5rem;
+        }
+
+        .intro-button {
+            color: white;
+            background-color: black;
+            padding: 0.75rem 2rem;
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .intro-button:hover {
+            background-color: white;
+            color: black;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        #register{
+            flex-direction: column;   
+            margin-top: 20px; 
+        }
+        .btn-outline-custom{
+            background-color:rgba(233,66,202,0.5) ;
+            color: white;
+            margin-top: 20px;
+        }
+        .card {
+            width:100%;
+            max-width:var(--card-width);
+            border-radius:var(--card-radius);
+            box-shadow: 0 8px 30px rgba(11,15,30,0.08);
+            overflow: hidden;
+            display: grid;
+        }
+        .card-hero {
+            position: relative;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 92%);
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-end;
+            padding: 48px;
+            gap:8px;
+        }
+        .navbar {
+            background-color: rgb(231, 94, 201);
+            font-family: "Poppins", sans-serif; /* modern, elegant font */
+            color: white !important;  
+        }
+        .navbar-brand{
+            font-weight: bold;
+            color: white !important; 
+            letter-spacing: 0.5px;
+        }
+        #reviews{
+            background-color: rgb(239, 188, 216);
+        }
+        .bi-star-fill{
+            color: rgb(204, 67, 208);
+        }
+    </style>
+   
+</head>
+<body>
+    <!-- Landing Page -->
+    <div class="landing-container" id="landing" style="text-align:center;">
+        <h4 class="welcome">Welcome to</h4>
+        <h1 class="checklist">My Checklist</h1>
+        <button class="btn intro-button my-4 shadow-sm" onclick="register()">Get Started</button>
+    </div>
+
+    <!-- Register Page (hidden by default) -->
+    <div id="register" style="display:none; height:100vh; width:100%; background:#f8f9fa; overflow:auto;">
+        <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="card shadow-lg border-0 rounded-4 w-100" style="max-width:800px;">
+                <div class="card-header text-white text-center" 
+                    style="background: linear-gradient(90deg, rgba(233,66,202,0.9), rgba(237, 212, 236, 0.9));">
+                    <h4 class="mb-1 fw-bold">Welcome to My Checklist</h4>
+                    <p class="mb-0 small">Get it done already!</p>
+                </div>
+
+                <div class="card-body p-5 d-flex flex-column justify-content-center align-items-start" 
+                        style="min-height:450px; background:#fff;">
+                    <form class="w-100">
+                        <div class="mb-4">
+                            <label for="username" class="form-label fw-semibold">Username</label>
+                            <input type="text" class="form-control rounded-3 shadow-sm" id="username" placeholder="e.g. name64">
+                            <small class="form-text text-muted">Use letters & numbers for your username</small>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="Password1" class="form-label fw-semibold">Password</label>
+                            <input type="password" class="form-control rounded-3 shadow-sm" id="Password1" placeholder="Enter password">
+                            <div class="text-end mt-1">
+                                <a href="javascript:void(0)" onclick="openForgotModal()" 
+                                class="text-decoration-none small" style="color:#e942ca;">Forgot Password?</a>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center mb-3">
+                            <button type="button" class="btn text-white shadow-sm" 
+                                    style="background: linear-gradient(90deg, #e942ca, #ff8bd6); border:none;" onclick="page1()">
+                                Login
+                            </button>
+                        </div>
+
+                        <div class="text-center w-100">
+                            <a href="javascript:void(0)" onclick="showSignup()" 
+                                class="small text-decoration-none" style="color:#6c757d;">
+                                Don’t have an account? <span style="color:#e942ca; font-weight:600;">Sign Up</span>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="signup" style="display:none; height:100vh; width:100%;overflow:auto;">
+        <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="card" role="region" aria-label="Registration form">
+                <div class="card-hero" aria-hidden="true">
+                    <h1 class="hero-title color: #0f1724;font-size: clamp(28px, 4vw, 40px);font-weight:700;line-height:1.05;">Registration Form</h1>
+                    <div class="hero-sub color:gray ;font-size: clamp(14px, 2vw, 18px);
+                        font-weight: 500;">Please fill in the form below</div>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="row mb-3 justify-content-center align-items-center">
+                            <div class="col-5">
+                                <label for="first"style="display:inline-block; width:auto; margin-bottom:4px; font-weight:500;">First Name</label>
+                                <input type="text" class="form-control" id="first" placeholder="First name">
+                            </div>
+
+                            <div class="col-5">
+                                <label for="last" style="display:inline-block; width:auto; margin-bottom:4px; font-weight:500;">Last Name</label>
+                                <input type="text" class="form-control" id="last" placeholder="Last name">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3 justify-content-center align-items-center">
+                            <div class="col-10">
+                                <label for="username"style="display:inline-block; width:auto; margin-bottom:4px; font-weight:500;">Username
+                                </label>
+                                <input type="text" class="form-control" id="username" placeholder="Enter username">
+                            </div>
+                        </div>
+
+
+                        <form onsubmit="return validateForm()">
+                            <div class="row mb-3 justify-content-center align-items-center">
+                                <div class="col-10">
+                                    <label for="password"style="display:inline-block; width:auto; margin-bottom:4px; font-weight:500;">Password
+                                    </label>
+                                    <input type="password" class="form-control" id="password" placeholder="Enter password">
+                                </div>
+                            </div>
+                            <div class="row mb-3 justify-content-center align-items-center">
+                                <div class="col-10">
+                                    <label for="password"style="display:inline-block; width:auto; margin-bottom:4px; font-weight:500;">Confirm Password
+                                    </label>
+                                    <input type="password" class="form-control" id="confirm" placeholder="Enter password">
+                                </div>
+                            </div>
+                        </form>
+                        <div style="display:flex; justify-content:center;align-items:center; height:100%;">
+                            <button class="btn shadow-sm" style="background: linear-gradient(90deg, #e942ca, #ff8bd6);color:white;padding:0.75rem 2rem; 
+                    font-size:1.25rem; border:none;border-radius:0.5rem;transition: all 0.3s ease;"onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 15px rgba(0,0,0,0.3)';"onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0 0 rgba(0,0,0,0)';"
+                    onclick="register()">Login</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>    
+    </div>
+
+    <div id="page1" style="display:none; height:100vh; width:100%;overflow:auto;">
+        <nav class="navbar navbar-expand-md navbar-light ">
+            <div class="container-fluid">
+                    <a href="#top" class="navbar-brand">
+                    <i class="bi bi-calendar-check"></i> My Checklist - Get it Done Already!
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#main-nav" aria-controls="main-nav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link" href="javascript:void(0)" onclick="reviews()">Reviews</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-danger fw-semibold" href="javascript:void(0)" onclick="logout()">Log Out</a>
+                            </li>                                       
+                        </ul>
+                    </div>
+            </div>
+        </nav> 
+        <div class="container h-100 d-flex justify-content-center align-items-center">
+            <div class="card shadow-lg border-0 rounded-4 w-100" style="max-width:800px;">
+                <h2 class="pt-3" >Quote Of The Day: <p id="datetime" style="color: pink; font-weight: 500; margin-left: 20px;"></p></h2>
+                <p class="text-center">“Where your attention goes, your time goes”― Idowu Koyenikan</p>
+                <div class="floating-container justify-content-center text-center" style="max-width:800px;margin-top:40px;background:white;padding:2rem;border-radius:1rem;">
+                    <h4>What're you upto??</h4>
+                    <form id="todoForm" class="mb-4">
+                        <div class="row g-2">
+                            <div class="col-md-4">
+                                <input type="text" id="taskTitle" class="form-control" placeholder="Task title" required>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="date" id="taskDate" class="form-control" required>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="time" id="startTime" class="form-control" required>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="time" id="endTime" class="form-control" required>
+                            </div>
+                            <div class="col-md-1 d-grid">
+                                <button type="submit" style="background:linear-gradient(90deg,#e942ca,#ff8bd6);color:white;font-weight:600;border:none;padding:6px 14px;border-radius:6px;">+</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div id="todoList"></div>
+                    <div class="text-center mt-4">
+                        <button type="button" onclick="saveTasks()" style="background:linear-gradient(90deg,#e942ca,#ff8bd6);color:white;font-weight:600;border:none;padding:6px 14px;border-radius:6px;">Save Changes</button>
+                    </div>
+                </div>
+            </div>    
+        </div>   
+    </div>
+    <div id="reviews">
+        <div class="container-lg">
+            <a href="javascript:void(0)" onclick="register()" 
+                style="display:inline-block; margin: 20px; color:#e942ca; font-weight:600; text-decoration:none;">
+                ← Back to Login
+            </a>
+
+            <div class="text-center">
+                <h2>
+                    <i class="bi bi-stars"></i>App Reviews
+                </h2>
+                <p class="lead">What the users have said about the app...</p>
+            </div>
+            <div class="row justify-content-center my-5">
+                <div class="col-lg-8">
+                    <div class="list-group">
+                        <div class="list-group-item py-3">
+                            <div class="pb-2">
+                               <i class="bi bi-star-fill"></i>
+                               <i class="bi bi-star-fill"></i>
+                               <i class="bi bi-star-fill"></i>
+                               <i class="bi bi-star-fill"></i>
+                               <i class="bi bi-star-fill"></i>
+                            </div>
+                            <h5 class="mb-1">Everything gets done really!</h5>
+                            <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis vero quisquam ex maxime a quasi aliquam illo exercitationem dolor minima.</p>
+                            <small>Review by Nipa</small>
+                        </div>
+                        <div class="list-group-item py-3">
+                            <div class="pb-2">
+                               <i class="bi bi-star-fill"></i>
+                               <i class="bi bi-star-fill"></i>
+                               <i class="bi bi-star-fill"></i>
+                               <i class="bi bi-star-fill"></i>
+                               <i class="bi bi-star-fill"></i> 
+                            </div>
+                            <h5 class="mb-1">big up, my activities are not hanging anymore</h5>
+                            <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis vero quisquam ex maxime a quasi aliquam illo exercitationem dolor minima.</p>
+                            <small>Review by John</small>
+                        </div>
+                        <div class="list-group-item py-3">
+                            <div class="pb-2">
+                               <i class="bi bi-star-fill"></i>
+                               <i class="bi bi-star-fill"></i>
+                               <i class="bi bi-star-fill"></i>
+                            </div>
+                            <h5 class="mb-1">The quotes keep me going</h5>
+                            <p class="mb-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis vero quisquam ex maxime a quasi aliquam illo exercitationem dolor minima.</p>
+                            <small>Review by bonast</small> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div id="forgotModal" style="display:none; position:fixed; top:0; left:0;width:100%; height:100%;background:rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+                 justify-content:center; align-items:center; z-index:1000;">
+
+        <div style="background:white; padding:2rem; border-radius:1rem; width:90%; max-width:400px; 
+                    box-shadow:0 8px 30px rgba(0,0,0,0.3); text-align:center; position:relative;">
+            
+            <h4 style="color:#e942ca; font-weight:700;">Reset Password</h4>
+            <p style="color:#6c757d; font-size:0.9rem;">Enter your details to reset your password</p>
+            
+            <form>
+                <div style="margin-bottom:1rem; text-align:left;">
+                    <label for="fp-username" style="font-weight:500;">Username</label>
+                    <input type="text" id="fp-username" class="form-control" placeholder="Enter username">
+                </div>
+
+                <div style="margin-bottom:1rem; text-align:left;">
+                    <label for="fp-newpass" style="font-weight:500;">New Password</label>
+                    <input type="password" id="fp-newpass" class="form-control" placeholder="Enter new password">
+                </div>
+
+                <div style="margin-bottom:1rem; text-align:left;">
+                    <label for="fp-confirmpass" style="font-weight:500;">Confirm Password</label>
+                    <input type="password" id="fp-confirmpass" class="form-control" placeholder="Confirm password">
+                </div>
+
+                <button type="button" onclick="resetPassword()" 
+                        style="background:linear-gradient(90deg,#e942ca,#ff8bd6); border:none; color:white;
+                                padding:0.5rem 1.5rem; border-radius:0.5rem; font-weight:600;">
+                    Save Changes
+                </button>
+                <br><br>
+                <a href="javascript:void(0)" onclick="closeForgotModal()" 
+                    style="color:#e942ca; font-weight:600; text-decoration:none;">← Back to Login</a>
+            </form>
+        </div>
+    </div>
+                                               
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+            crossorigin="anonymous"></script>
+
+    <script>
+    function register() {
+        document.getElementById("landing").style.display = "none";
+        document.getElementById("register").style.display = "block";
+        document.getElementById("signup").style.display = "none";
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("reviews").style.display = "none";
+    }
+
+    function showSignup() {
+        document.getElementById("landing").style.display = "none";
+        document.getElementById("register").style.display = "none";
+        document.getElementById("signup").style.display = "block";
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("reviews").style.display = "none";
+    }
+    function page1() {
+        document.getElementById("landing").style.display = "none";
+        document.getElementById("register").style.display = "none";
+        document.getElementById("signup").style.display = "none";
+        document.getElementById("page1").style.display = "block";
+        document.getElementById("reviews").style.display = "none";
+    }
+    function reviews() {
+        document.getElementById("landing").style.display = "none";
+        document.getElementById("register").style.display = "none";
+        document.getElementById("signup").style.display = "none";
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("reviews").style.display = "block";
+    }
+    function logout() {
+    const confirmLogout = confirm("Are you sure you want to log out?");
+    if (confirmLogout) {
+        document.getElementById("landing").style.display = "none";
+        document.getElementById("register").style.display = "block";
+        document.getElementById("signup").style.display = "none";
+        document.getElementById("page1").style.display = "none";
+        document.getElementById("reviews").style.display = "none";
+    }
+    }
+    function validateForm() {
+        let pass = document.getElementById("password    ").value;
+        let confirm = document.getElementById("confirm").value;
+
+        if (pass !== confirm) {
+            alert("Passwords do not match!");
+            return false; 
+        }
+        return true; 
+    }
+    function updateDateTime() {
+    const now = new Date();
+
+    const options = {
+        weekday: 'short', 
+        year: 'numeric',
+        month: 'short',   
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+    };
+
+    const formatted = now.toLocaleString('en-US', options);
+
+    document.getElementById('datetime').textContent = formatted;
+}
+updateDateTime();
+setInterval(updateDateTime, 1000);
+
+let tasks = [];
+
+document.getElementById("todoForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const title = document.getElementById("taskTitle").value;
+    const date = document.getElementById("taskDate").value;
+    const start = document.getElementById("startTime").value;
+    const end = document.getElementById("endTime").value;
+
+    if (title && date && start && end) {
+        const task = { title, date, start, end, done: false };
+        tasks.push(task);
+        displayTasks();
+        this.reset();
+    }
+});
+
+function displayTasks() {
+    const list = document.getElementById("todoList");
+    list.innerHTML = "";
+    tasks.forEach((task, index) => {
+        const item = document.createElement("div");
+        item.classList.add("todo-item", "d-flex", "align-items-center", "justify-content-between");
+
+        item.innerHTML = `
+            <div>
+                <input type="checkbox" ${task.done ? "checked" : ""} onchange="toggleTask(${index})">
+                <strong>${task.title}</strong> <br>
+                <small>${task.date} | ${task.start} - ${task.end}</small>
+            </div>
+            <button class="btn btn-sm btn-outline-danger" onclick="deleteTask(${index})">🗑️</button>
+        `;
+        list.appendChild(item);
+    });
+}
+
+function toggleTask(index) {
+    tasks[index].done = !tasks[index].done;
+    displayTasks();
+}
+
+function deleteTask(index) {
+    tasks.splice(index, 1);
+    displayTasks();
+}
+
+function saveTasks() {
+    localStorage.setItem("todoList", JSON.stringify(tasks));
+    alert("✅ Tasks saved successfully!");
+}
+
+function loadTasks() {
+    const stored = localStorage.getItem("todoList");
+    if (stored) {
+        tasks = JSON.parse(stored);
+        displayTasks();
+    }
+}
+
+window.onload = loadTasks;
+
+function openForgotModal() {
+    document.getElementById("forgotModal").style.display = "flex";
+    document.getElementById("register").style.opacity = "0.5";
+}
+
+function closeForgotModal() {
+    document.getElementById("forgotModal").style.display = "none";
+    document.getElementById("register").style.opacity = "1";
+}
+
+function resetPassword() {
+    const newPass = document.getElementById("fp-newpass").value;
+    const confirmPass = document.getElementById("fp-confirmpass").value;
+
+    if (newPass !== confirmPass) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    alert("Password successfully reset!");
+    closeForgotModal();
+}
+</script>
+
+</body>
+
+</html>
