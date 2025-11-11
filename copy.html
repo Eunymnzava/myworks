@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centered Landing Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.landing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* vertical center */
+    align-items: center;       /* horizontal center */
+    height: 100vh;             /* full viewport */
+    width: 100%;
+    text-align: center;
+    color: white;
+    background: linear-gradient(to right, rgba(233,66,202,0.5), rgba(237,195,235,0.5)),
+                url('assets/bg-intro.jpg') no-repeat center center/cover;
+    box-sizing: border-box;
+    padding: 0 1rem;
+}
+
+.welcome, .checklist {
+    display: block;       /* important: remove any flex from headings */
+    margin: 0.25em 0;     /* small vertical spacing */
+}
+
+.welcome {
+    font-family: "Ultra", serif;
+    font-size: 2.5rem;
+}
+
+.checklist {
+    font-family: "Ultra", serif;
+    font-size: 4.5rem;
+}
+
+.intro-button {
+    color: white;
+    background-color: black;
+    padding: 0.75rem 2rem;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.intro-button:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .welcome { font-size: 2rem; }
+    .checklist { font-size: 3rem; }
+    .intro-button { font-size: 1rem; padding: 0.5rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+<div class="landing-container">
+    <h4 class="welcome">Welcome to</h4>
+    <h1 class="checklist">My Checklist</h1>
+    <a href="#" class="btn intro-button">Get Started</a>
+</div>
+</body>
+</html>
