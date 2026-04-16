@@ -1,0 +1,160 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0d1117;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: radial-gradient(circle, #182334, #6A5ACD);
+}
+
+.card {
+  width: 100%;
+  max-width: 370px;
+  background-color: #403585 !important;
+  border-radius: 24px;
+  box-shadow: 0 15px 35px #FE6F5E;
+  border: 1px solid rgba(255, 255, 255, 0.069);
+  padding: 40px 30px;
+}
+
+
+.title {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.subtitle {
+  color: #a0a0a0;
+  font-size: 14px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.formContent {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  /* lets justify-content: space-between work */
+}
+
+
+/* Inputs */
+.input {
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 2px solid #ed5241;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 15px 0; /* Consistent spacing */
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input::placeholder {
+  color: rgba(255, 259, 259, 0.4);
+}
+
+.input:focus {
+  border-color: #fb5b49;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 8px rgba(250, 220, 23, 0.2);
+}
+
+/* Options */
+.options {
+  margin: 20px 0;
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between; /* Pushes items to opposite sides */
+  align-items: flex-start;
+}
+
+.rememberMe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.forgotLink {
+  color: #FE6F5E;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.forgotLink:hover {
+  text-decoration: underline;
+}
+
+/* Button */
+.primaryBtn {
+  width: 50%; /* Changed from 50% to 100% for better UI */
+  background-color: #FE6F5E;
+  color: #161a28; /* Dark text on yellow background for better contrast */
+  border: none;
+  padding: 14px;
+  display: block;
+  margin: 5px auto 0 auto;
+  border-radius: 20px; /* Matches input radius for consistency */
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.primaryBtn:hover {
+  background-color: #dd5e50;
+  transform: translateY(-2px);
+}
+
+.switchText {
+  text-align: center;
+  margin-top: 2px;
+  color:#5c5a52;;
+  font-size: 14px;
+}
+
+.switchText span {
+  color: #FE6F5E;
+  font-weight: 600;
+  cursor: pointer; /* Makes it clear it is clickable */
+  margin-left: 5px;
+}
+
+.switchText span:hover {
+  text-decoration: underline;
+}
+
+/* Error Message */
+.error-msg {
+  color: #ff4d4d;
+  font-size: 13px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .card {
+    max-width: 500px;
+    min-height: 600px;
+  }
+}

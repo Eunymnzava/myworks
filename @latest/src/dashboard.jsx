@@ -1,140 +1,66 @@
-import { useState } from "react";
+import GraphCard from "./graphcard.jsx";
+import "./dashboard.css";
 
 function Dashboard() {
-  const [rate] = useState(500);
-  const [balanceUnits, setBalanceUnits] = useState(50);
-
-  const [buyAmount, setBuyAmount] = useState("");
-  const [sellUnits, setSellUnits] = useState("");
-
-  const [transactions, setTransactions] = useState([
-    { id: 1, type: "BUY", units: 10, tsh: 5000, date: "2026-04-01" },
-    { id: 2, type: "SELL", units: 5, tsh: 2500, date: "2026-04-02" },
-  ]);
-
-  const calculatedUnits = buyAmount ? buyAmount / rate : 0;
-  const calculatedTsh = sellUnits ? sellUnits * rate : 0;
-
-  const handleBuy = () => {
-    if (!buyAmount) return;
-
-    const units = buyAmount / rate;
-    setBalanceUnits(balanceUnits + units);
-
-    setTransactions([
-      {
-        id: Date.now(),
-        type: "BUY",
-        units,
-        tsh: buyAmount,
-        date: new Date().toISOString().split("T")[0],
-      },
-      ...transactions,
-    ]);
-
-    setBuyAmount("");
-  };
-
-  const handleSell = () => {
-    if (!sellUnits || sellUnits > balanceUnits) return;
-
-    const tsh = sellUnits * rate;
-    setBalanceUnits(balanceUnits - sellUnits);
-
-    setTransactions([
-      {
-        id: Date.now(),
-        type: "SELL",
-        units: sellUnits,
-        tsh,
-        date: new Date().toISOString().split("T")[0],
-      },
-      ...transactions,
-    ]);
-
-    setSellUnits("");
-  };
+  const firstName = localStorage.getItem("firstName") || "User";
+  const transactions = [
+    { name: "Amazon", date: "2024-06-01", amount: -50 },
+    { name: "Salary", date: "2024-05-30", amount: 3000 },
+    { name: "Netflix", date: "2024-05-28", amount: -15 },
+  ];
 
   return (
-    <div className="container">
-      <h1>Dashboard</h1>
+    <>
+      <nav className="navbar2">
+        <div className="container-fluid">
+          <div className="navbar-brand2">
+            <div className="group">
+              <i className="bi bi-person-circle"></i>
+              <p className="profile-head">
+                Welcome back
+                <br />
+                {firstName.toUpperCase()}😄🎉!!
+              </p>
+            </div>
 
-    
-      <div className="cards">
-        <div className="card">
-          <p>Units Balance</p>
-          <h2>{balanceUnits}</h2>
+            <div className="icon-group">
+              <i className="bi bi-moon-fill"></i>
+              <i className="bi bi-bell"></i>
+            </div>
+          </div>
         </div>
-
-        <div className="card">
-          <p>Tsh Equivalent</p>
-          <h2>{(balanceUnits * rate).toLocaleString()} Tsh</h2>
+      </nav>
+      <div className="main-content">
+        <div className="top-dash">
+          <div className="dashboard-card">
+            <h3>Current Balance</h3>
+            <p>$12,345</p>
+          </div>
+          <GraphCard />
         </div>
+        <div className="transaction">
+          <h3>Recent Transactions</h3>
+          <ul className="transaction-list">
+            {transactions.map((tx, index) => (
+              <li className="transaction-item" key={index}>
+                <div className="transaction-info">
+                  <p className="transaction-name">{tx.name}</p>
+                  <p className="transaction-date">{tx.date}</p>
+                </div>
 
-        <div className="card">
-          <p>Conversion Rate</p>
-          <h2>1 Unit = {rate} Tsh</h2>
-        </div>
-      </div>
-
-     
-      <div className="forms">
-        <div className="form-box">
-          <h2>Buy Units</h2>
-          <input
-            type="number"
-            placeholder="Enter Tsh"
-            value={buyAmount}
-            onChange={(e) => setBuyAmount(e.target.value)}
-          />
-          <p>You will receive: {calculatedUnits} units</p>
-          <button className="buy-btn" onClick={handleBuy}>
-            Buy
-          </button>
-        </div>
-
-        <div className="form-box">
-          <h2>Sell Units</h2>
-          <input
-            type="number"
-            placeholder="Enter Units"
-            value={sellUnits}
-            onChange={(e) => setSellUnits(e.target.value)}
-          />
-          <p>You will receive: {calculatedTsh} Tsh</p>
-          <button className="sell-btn" onClick={handleSell}>
-            Sell
-          </button>
-        </div>
-      </div>
-
-     
-      <div className="table-box">
-        <h2>Recent Transactions</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Type</th>
-              <th>Units</th>
-              <th>Tsh</th>
-            </tr>
-          </thead>
-          <tbody>
-            {transactions.map((tx) => (
-              <tr key={tx.id}>
-                <td>{tx.date}</td>
-                <td className={tx.type === "BUY" ? "buy" : "sell"}>
-                  {tx.type}
-                </td>
-                <td>{tx.units}</td>
-                <td>{tx.tsh}</td>
-              </tr>
+                <p
+                  className={`transaction-amount ${
+                    tx.amount < 0 ? "expense" : "income"
+                  }`}
+                >
+                  {tx.amount < 0 ? "-" : "+"}${Math.abs(tx.amount)}
+                </p>
+              </li>
             ))}
-          </tbody>
-        </table>
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
