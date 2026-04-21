@@ -7,12 +7,10 @@ function LandPage() {
     <>
       <nav className="navbar">
         <div className="container-fluid">
-          <span className="navbar-brand">
-            <h1 className="landpage-title">
-              ALPHA HALAL <br />
-              FUNDS
-            </h1>
-          </span>
+          <div className="navbar-brand">
+            <img src="src/assets/logo0.png" alt="logo" />
+            
+          </div>
 
           <button onClick={() => navigate("/login")} className="land-button">
             Get Started

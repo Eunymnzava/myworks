@@ -25,7 +25,7 @@ body {
     height: 100vh; /* full screen */
     width: 100%;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                url('./assets/backphoto.jpg');
+                url('../assets/backphoto.jpg');
     background-size: cover;
     background-position: center;
     padding-top: 60px; /* navbar space */
@@ -40,8 +40,8 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px;
-    background-color: #6A5ACD;
+    height: 80px;
+    background-color: #18044D;
     padding: 0 20px;
     z-index: 1000;
 }
@@ -50,12 +50,6 @@ body {
     margin: 0;
 }
 
-.landpage-title {
-    color: white;
-    font-size: 0.9rem;
-    font-weight: bold;
-    font-family: Sekuya;
-}
 
 /* Button */
 .land-button {
@@ -64,7 +58,7 @@ body {
     font-size: 0.75rem;
     font-weight: bold;
     color: white;
-    background-color: #FE6F5E;
+    background-color: #ea2b0eec;
     border: none;
     border-radius: 999px;
     cursor: pointer;
@@ -72,7 +66,7 @@ body {
 }
 
 .land-button:hover {
-    background-color: #f25544;
+    background-color: #ea2b0eec;
     color: black;
 }
 
@@ -110,7 +104,8 @@ body {
     font-family: 'Fraunces';
     font-size: 3rem; /* reduced */
     line-height: 1.3;
-    color: #f26555;
+    font-weight: bold;
+    color: #e8280bec;
 }
 
 .landpage-description {
@@ -133,7 +128,7 @@ body {
     object-fit: cover;
 }
 .contact{
-    background-color: #f26555;
+    background-color: #d3290fde;
     border-radius: 15px;
     padding: 15px;
     margin-top: 7px;

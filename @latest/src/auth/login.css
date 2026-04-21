@@ -6,42 +6,50 @@
 }
 
 body {
+  margin: 0;
   background-color: #0d1117;
+  height: 100%;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+html, body, #root {
+  height: 100%;
+  background-color: #18044D;
 }
 
 .container {
   min-height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  background: radial-gradient(circle, #182334, #6A5ACD);
+  padding: 10px;
+  background: radial-gradient(circle, #182334, #18097d) !important;
 }
 
 .card {
   width: 100%;
   max-width: 370px;
-  background-color: #403585 !important;
+  background-color: #18044D !important;
   border-radius: 24px;
-  box-shadow: 0 15px 35px #FE6F5E;
+  box-shadow: 0 15px 35px #bf2008e5;
   border: 1px solid rgba(255, 255, 255, 0.069);
-  padding: 40px 30px;
+  padding: 20px 30px;
 }
-
+.container .card {
+  background-color: #210f54!important;
+}
 
 .title {
   color: #ffffff;
   font-size: 28px;
   font-weight: 700;
-  margin-bottom: 30px;
   text-align: center;
 }
 
 .subtitle {
   color: #a0a0a0;
   font-size: 14px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -55,9 +63,8 @@ body {
 
 /* Inputs */
 .input {
-  width: 100%;
   background-color: rgba(0, 0, 0, 0.2);
-  border: 2px solid #ed5241;
+  border: 2px solid #d4260bd4;
   border-radius: 12px;
   padding: 14px 16px;
   margin: 15px 0; /* Consistent spacing */
@@ -72,7 +79,7 @@ body {
 }
 
 .input:focus {
-  border-color: #fb5b49;
+  border-color: #e54e37de;
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 8px rgba(250, 220, 23, 0.2);
 }
@@ -95,8 +102,10 @@ body {
   cursor: pointer;
 }
 
+
+
 .forgotLink {
-  color: #FE6F5E;
+  color: #de3f26ec;
   text-decoration: none;
   font-size: 13px;
   font-weight: 500;
@@ -109,8 +118,8 @@ body {
 /* Button */
 .primaryBtn {
   width: 50%; /* Changed from 50% to 100% for better UI */
-  background-color: #FE6F5E;
-  color: #161a28; /* Dark text on yellow background for better contrast */
+  background-color: #ea3418ec;
+  color: #ffffff;
   border: none;
   padding: 14px;
   display: block;
@@ -123,19 +132,19 @@ body {
 }
 
 .primaryBtn:hover {
-  background-color: #dd5e50;
+  background-color: #b4220cec;
   transform: translateY(-2px);
 }
 
 .switchText {
   text-align: center;
   margin-top: 2px;
-  color:#5c5a52;;
+  color:#bcb9b2;;
   font-size: 14px;
 }
 
 .switchText span {
-  color: #FE6F5E;
+  color: #ea2b0eec;
   font-weight: 600;
   cursor: pointer; /* Makes it clear it is clickable */
   margin-left: 5px;
@@ -147,7 +156,7 @@ body {
 
 /* Error Message */
 .error-msg {
-  color: #ff4d4d;
+  color: #fe2a2a;
   font-size: 13px;
   margin-bottom: 10px;
   text-align: center;

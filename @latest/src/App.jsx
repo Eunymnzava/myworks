@@ -1,8 +1,8 @@
-import Login from "./Login.jsx";
-import SignUp from "./SignUp.jsx";
+import Login from "./auth/Login.jsx";
+import SignUp from "./auth/SignUp.jsx";
 import { Routes, Route, Navigate } from "react-router-dom";
-import Dashboard from "./dashboard.jsx";
-import LandPage from "./landpage.jsx";
+import Dashboard from "./dashboard/dashboard.jsx";
+import LandPage from "./land/landpage.jsx";
 
 function App() {
   const isLoggedIn = localStorage.getItem("userEmail") !== null;

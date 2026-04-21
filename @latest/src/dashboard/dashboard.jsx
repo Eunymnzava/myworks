@@ -33,7 +33,7 @@ function Dashboard() {
       <div className="main-content">
         <div className="top-dash">
           <div className="dashboard-card">
-            <h3>Current Balance</h3>
+            <h3 className="balance">Current Balance</h3>
             <p>$12,345</p>
           </div>
           <GraphCard />
