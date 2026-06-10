@@ -1,0 +1,98 @@
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .landing-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;   
+            align-items: center;      
+            height: 100vh;         
+            width: 100%;
+            text-align: center;
+            color: white;
+            background: linear-gradient(to right, rgba(237, 112, 221, 0.9), rgba(245, 205, 242, 0.6)),
+                        url('assets/bg-intro.jpg') no-repeat center center/cover;
+            box-sizing: border-box;
+            padding: 0 1rem;
+            position: relative;
+        }
+
+        .welcome, .checklist {
+            display: block;       
+            margin: 0.25em 0;     
+        }
+
+        .welcome {
+            font-family: "Ultra", serif;
+            font-size: 2.5rem;
+        }
+
+        .checklist {
+            font-family: "Ultra", serif;
+            font-size: 4.5rem;
+        }
+
+        .intro-button {
+            color: white;
+            background-color: black;
+            padding: 0.75rem 2rem;
+            font-size: 1.25rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .intro-button:hover {
+            background-color: white;
+            color: black;
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        #register{
+            flex-direction: column;   
+            margin-top: 20px; 
+        }
+        .btn-outline-custom{
+            background-color:rgba(233,66,202,0.5) ;
+            color: white;
+            margin-top: 20px;
+        }
+        .card {
+            width:100%;
+            max-width:var(--card-width);
+            border-radius:var(--card-radius);
+            box-shadow: 0 8px 30px rgba(11,15,30,0.08);
+            overflow: hidden;
+            display: grid;
+        }
+        .card-hero {
+            position: relative;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0) 40%, rgba(255,255,255,1) 92%);
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-end;
+            padding: 48px;
+            gap:8px;
+        }
+        .navbar {
+            background-color: rgb(231, 94, 201);
+            font-family: "Poppins", sans-serif; /* modern, elegant font */
+            color: white !important;  
+        }
+        .navbar-brand{
+            font-weight: bold;
+            color: white !important; 
+            letter-spacing: 0.5px;
+        }
+        #reviews{
+            background-color: rgb(239, 188, 216);
+        }
+        .bi-star-fill{
+            color: rgb(204, 67, 208);
+        }
